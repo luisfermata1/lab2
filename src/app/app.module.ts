@@ -3,17 +3,17 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { ShoppingControlComponent } from './shopping-list/shopping-control/shopping-control.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { FormularioComponent } from './formulario/formulario.component';
+import { ListaComprasComponent } from './lista-compras/lista-compras.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ShoppingListComponent,
-    ShoppingControlComponent
+    FormularioComponent,
+    ListaComprasComponent
   ],
   imports: [
     BrowserModule,
