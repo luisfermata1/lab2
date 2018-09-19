@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormularioComponent } from './formulario/formulario.component';
 import { ListaComprasComponent } from './lista-compras/lista-compras.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ListaComprasComponent } from './lista-compras/lista-compras.component';
   ],
   imports: [
     BrowserModule,
-    NgbModule
+    NgbModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
