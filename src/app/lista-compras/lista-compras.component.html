@@ -1,19 +1,19 @@
 <hr>
 <ul class="list-group">
-  <a class="list-group-item clearfix">
+  <a class="list-group-item clearfix" *ngFor="let pedido of pedidos">
     <div class="pull-left">
-      <h4 class="list-group-item-heading">iPhone Xs</h4>
+      <h4 class="list-group-item-heading">{{pedido.name}}</h4>
       <p class="list-group-item-text">
-        <b>Color:</b> White Glass
+        <b>Color:</b> {{pedido.color}}
       </p>
       <p class="list-group-item-text">
-        <b>Cantidad:</b> 8
+        <b>Cantidad:</b> {{pedido.cant}}
       </p>
       <p class="list-group-item-text">
-        <b>Capacidad:</b> 256 GB
+        <b>Capacidad:</b> {{pedido.capac}}
       </p>
       <p class="list-group-item-text">
-        <b>Descripción:</b> Regalo Familia
+        <b>Descripción:</b> {{pedido.descr}}
       </p>
     </div>
     <span class="pull-right">
