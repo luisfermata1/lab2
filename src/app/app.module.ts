@@ -8,13 +8,15 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormularioComponent } from './formulario/formulario.component';
 import { ListaComprasComponent } from './lista-compras/lista-compras.component';
 import { AppRoutingModule } from './app-routing.module';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FormularioComponent,
-    ListaComprasComponent
+    ListaComprasComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
