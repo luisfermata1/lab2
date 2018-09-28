@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { PEDIDOS } from './mock-pedidos';
-
+import { Component, OnInit, Inject } from '@angular/core';
+import { observable, of } from 'rxjs';
+import { Pedido } from './pedido';
+import { SESSION_STORAGE, StorageService, StorageServiceModule } from 'angular-webstorage-service';
 
 
 @Component({
@@ -11,8 +12,9 @@ import { PEDIDOS } from './mock-pedidos';
 
 export class ListaComprasComponent implements OnInit {
   
-  pedidos = PEDIDOS;
-  constructor() { 
+  pedidos : Pedido[] = this.memoria.get('listapedidos');
+
+  constructor(@Inject(SESSION_STORAGE) private memoria: StorageService) { 
     
   }
 

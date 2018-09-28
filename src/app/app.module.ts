@@ -10,6 +10,9 @@ import { ListaComprasComponent } from './lista-compras/lista-compras.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CarouselComponent } from './carousel/carousel.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StorageServiceModule } from 'angular-webstorage-service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +24,9 @@ import { CarouselComponent } from './carousel/carousel.component';
   imports: [
     BrowserModule,
     NgbModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    StorageServiceModule
   ],
   providers: [],
   bootstrap: [AppComponent]
