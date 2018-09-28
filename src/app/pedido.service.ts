@@ -2,6 +2,7 @@ import { Injectable, Inject } from '@angular/core';
 import { observable, of } from 'rxjs';
 import { Pedido } from './lista-compras/pedido';
 import { SESSION_STORAGE, StorageService, StorageServiceModule } from 'angular-webstorage-service';
+import { ListaComprasComponent } from './lista-compras/lista-compras.component';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,19 @@ export class PedidoService {
 
     console.log(this.memoria.get(llave) || []);
 
+  }
+
+  eliminarIndex(i: number){
+    let llave =  'listapedidos';
+    let listaActualPedidos = this.memoria.get(llave);
+    let listaNuevoPedidos = [];
+
+    for(var _i = 0; _i < listaActualPedidos.length; _i++){
+      if(_i !== i)
+        listaNuevoPedidos.push(listaActualPedidos[_i]);
+    }
+
+    this.memoria.set(llave, listaNuevoPedidos);
   }
 
 
