@@ -12,6 +12,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StorageServiceModule } from 'angular-webstorage-service';
+import { FormActualizarComponent } from './form-actualizar/form-actualizar.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { StorageServiceModule } from 'angular-webstorage-service';
     HeaderComponent,
     FormularioComponent,
     ListaComprasComponent,
-    CarouselComponent
+    CarouselComponent,
+    FormActualizarComponent
   ],
   imports: [
     BrowserModule,

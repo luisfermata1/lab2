@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-7 col-md-7 col-sm-8 form-group">
       <label for="name">Nombre Producto</label>
-      <select [(ngModel)]="name" placeholder="name" class="form-control" name="name">
+      <select [(ngModel)]="pedido.name" placeholder="name" class="form-control" name="name">
         <option>iPhone Xs</option>
         <option>iPhone Xr</option>
         <option>iPhone 8</option>
@@ -13,13 +13,13 @@
     </div>
     <div class="col-lg-3 col-md-3 col-sm-4 form-group">
       <label for="amount">Cantidad</label>
-      <input type="number" [(ngModel)]="cantidad" placeholder="cantidad" class="form-control" name="cantidad">
+      <input type="number" [(ngModel)]="pedido.cant" placeholder="cant" class="form-control" name="cant">
     </div>
   </div>
   <div class="row">
     <div class="col-lg-7 col-md-7 col-sm-8 form-group">
       <label for="color">Color del Producto</label>
-      <select [(ngModel)]="color" placeholder="color" class="form-control" name="color">
+      <select [(ngModel)]="pedido.color" placeholder="color" class="form-control" name="color">
         <option>White Glass</option>
         <option>Black Glass</option>
         <option>Blue Glass</option>
@@ -30,7 +30,7 @@
     </div>
     <div class="col-lg-3 col-md-3 col-sm-4 form-group">
       <label for="capacidad">Capacidad</label>
-      <select class="form-control" [(ngModel)]="capacidad" placeholder="capacidad" name="capacidad">
+      <select class="form-control" [(ngModel)]="pedido.capac" placeholder="capac" name="capac">
         <option>8 GB</option>
         <option>16 GB</option>
         <option>32 GB</option>
@@ -42,12 +42,12 @@
   <div class="row">
     <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 form-group">
       <label for="descripcion">Descripción</label>
-      <input type="text" [(ngModel)]="descripcion" name="descripcion" placeholder="descripcion" class="form-control">
+      <input type="text" [(ngModel)]="pedido.descr" name="descr" placeholder="descr" class="form-control">
     </div>
   </div>
   <div class="row">
     <div class="col-lg-3 col-md-5 col-sm-6 col-xs-6">
-      <button class="btn btn-success btn-block" (click)="agregarPedido()">Agregar</button>
-    </div>
+        <button class="btn btn-primary btn-block" (click)="actualizarPedido()">Actualizar</button>
+      </div>
   </div>
 </form>

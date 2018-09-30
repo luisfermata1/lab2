@@ -38,6 +38,15 @@ export class PedidoService {
     this.memoria.set(llave, listaNuevoPedidos);
   }
 
+  updatePedido(index: number, pedido : Pedido){
+    let llave =  'listapedidos';
+    let listaPedidos = this.memoria.get(llave);
+    listaPedidos[index] = pedido;
+
+    this.memoria.set(llave, listaPedidos);
+    
+  }
+
 
   constructor(@Inject(SESSION_STORAGE) private memoria: StorageService) { 
 
