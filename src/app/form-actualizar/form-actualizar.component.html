@@ -51,3 +51,16 @@
       </div>
   </div>
 </form>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Update!</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Pedido actualizado con exito.</p>
+  </div>
+</ng-template>
+<button style="display:none;" id="openM" class="btn btn-lg btn-outline-primary" (click)="openSm(content)">Launch demo modal</button>

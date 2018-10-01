@@ -3,6 +3,7 @@ import {ActivatedRoute } from '@angular/router';
 import { SESSION_STORAGE, StorageService, StorageServiceModule } from 'angular-webstorage-service';
 import { Pedido } from '../lista-compras/pedido';
 import { PedidoService } from '../pedido.service';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-form-actualizar',
@@ -10,14 +11,37 @@ import { PedidoService } from '../pedido.service';
   styleUrls: ['./form-actualizar.component.css']
 })
 export class FormActualizarComponent implements OnInit {
-
+  closeResult: string;
   @Input() pedido:Pedido; 
 
   constructor(
     private route: ActivatedRoute,
     @Inject(SESSION_STORAGE) private memoria: StorageService,
-    private servicio: PedidoService
+    private servicio: PedidoService,
+    private modalService: NgbModal
     ) { }
+
+    open(content) {
+      this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+    }
+
+    openSm(content) {
+      this.modalService.open(content, { size: 'sm' });
+    }
+
+    private getDismissReason(reason: any): string {
+      if (reason === ModalDismissReasons.ESC) {
+        return 'by pressing ESC';
+      } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+        return 'by clicking on a backdrop';
+      } else {
+        return  `with: ${reason}`;
+      }
+    }
 
   ngOnInit() {
     this.getPedido();
@@ -35,7 +59,7 @@ export class FormActualizarComponent implements OnInit {
     
     this.servicio.updatePedido(id2, this.pedido)
 
-    alert("Pedido Actualizado");
+    document.getElementById("openM").click();
   }
 
 }

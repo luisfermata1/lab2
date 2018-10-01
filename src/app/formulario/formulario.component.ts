@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { PedidoService } from '../pedido.service';
 import { Pedido } from '../lista-compras/pedido';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-formulario',
@@ -14,7 +15,7 @@ export class FormularioComponent implements OnInit {
     color: string;
     capacidad: string;
     descripcion: string;
-
+  closeResult: string;
   agregarPedido()
   {
     this.pedido = {
@@ -26,11 +27,34 @@ export class FormularioComponent implements OnInit {
     };
 
     this.servicio.agregarPedido(this.pedido);
-
-    alert("Pedido Agregado");
-    
+    document.getElementById("openM").click();
   }
-  constructor(private servicio: PedidoService) { }
+  constructor(
+    private servicio: PedidoService,
+    private modalService: NgbModal
+    ) { }
+
+    open(content) {
+      this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+    }
+
+    openSm(content) {
+      this.modalService.open(content, { size: 'sm' });
+    }
+
+    private getDismissReason(reason: any): string {
+      if (reason === ModalDismissReasons.ESC) {
+        return 'by pressing ESC';
+      } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+        return 'by clicking on a backdrop';
+      } else {
+        return  `with: ${reason}`;
+      }
+    }
 
   ngOnInit() {
   }
