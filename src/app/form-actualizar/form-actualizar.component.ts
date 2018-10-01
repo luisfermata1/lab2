@@ -34,6 +34,8 @@ export class FormActualizarComponent implements OnInit {
     var id2 = +id;
     
     this.servicio.updatePedido(id2, this.pedido)
+
+    alert("Pedido Actualizado");
   }
 
 }

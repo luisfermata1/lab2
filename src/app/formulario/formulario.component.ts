@@ -26,6 +26,8 @@ export class FormularioComponent implements OnInit {
     };
 
     this.servicio.agregarPedido(this.pedido);
+
+    alert("Pedido Agregado");
     
   }
   constructor(private servicio: PedidoService) { }
