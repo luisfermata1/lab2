@@ -25,7 +25,7 @@ import { FormActualizarComponent } from './form-actualizar/form-actualizar.compo
   ],
   imports: [
     BrowserModule,
-    NgbModule,
+    NgbModule.forRoot(),
     AppRoutingModule,
     FormsModule,
     StorageServiceModule

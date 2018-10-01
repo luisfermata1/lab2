@@ -1,24 +1,15 @@
-<hr>
-<ul class="list-group">
-  <a class="list-group-item clearfix" *ngFor="let pedido of pedidos; let i = index">
-    <div class="pull-left">
-      <h4 class="list-group-item-heading">{{pedido.name}}</h4>
-      <p class="list-group-item-text">
-        <b>Color:</b> {{pedido.color}}
-      </p>
-      <p class="list-group-item-text">
-        <b>Cantidad:</b> {{pedido.cant}}
-      </p>
-      <p class="list-group-item-text">
-        <b>Capacidad:</b> {{pedido.capac}}
-      </p>
-      <p class="list-group-item-text">
-        <b>Descripción:</b> {{pedido.descr}}
-      </p>
+<div class="row">
+  <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" *ngFor="let pedido of pedidos; let i = index">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">{{pedido.name}}</h4>
+        <p class="card-text"><b>Color:</b> {{pedido.color}}</p>
+        <p class="card-text"><b>Cantidad:</b> {{pedido.cant}}</p>
+        <p class="card-text"><b>Capacidad:</b> {{pedido.capac}}</p>
+        <p class="card-text"><b>Descripción:</b> {{pedido.descr}}</p>
+        <button class="btn btn-danger btn-block" (click)="eliminarPedido(i)">Eliminar<span class="glyphicon glyphicon-trash"></span></button>
+        <button class="btn btn-info btn-block" routerLink="/refresh/{{i}}" >Editar<span class="glyphicon glyphicon-pencil"></span></button>
+      </div>
     </div>
-    <span class="pull-right">
-        <button class="btn btn-danger btn-block" (click)="eliminarPedido(i)"><span class="glyphicon glyphicon-trash"></span></button>
-        <button class="btn btn-info btn-block" routerLink="/refresh/{{i}}" ><span class="glyphicon glyphicon-pencil"></span></button>
-    </span>
-  </a>
-</ul>
+  </div>
+</div>
