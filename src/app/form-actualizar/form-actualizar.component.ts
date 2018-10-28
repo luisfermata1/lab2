@@ -54,10 +54,12 @@ export class FormActualizarComponent implements OnInit {
   }
 
   actualizarPedido() : void {
-    const id = this.route.snapshot.paramMap.get('id');
-    var id2 = +id;
+    //const id = this.route.snapshot.paramMap.get('id');
+    this.servicio.updatePedido(this.pedido);
+    console.log(this.pedido)
+    //var id2 = +id;
     
-    this.servicio.updatePedido(id2, this.pedido)
+    //this.servicio.updatePedido(id2, this.pedido)
 
     document.getElementById("openM").click();
   }

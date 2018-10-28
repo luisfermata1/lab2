@@ -58,6 +58,17 @@ export class PedidoService {
     return of([]);
    }
 
+   //actualizar el pedido por servicio de Api
+   updatePedido(pedido:Pedido): Observable<Pedido[]> {
+    var _id = pedido._id;
+    var req = new XMLHttpRequest();
+    req.open('PUT', 'http://localhost:3000/api/v1/pedido/'+_id, true);
+    req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    req.send(JSON.stringify(pedido));
+    return of([]);
+ 
+   }
+
 
 
 
@@ -92,7 +103,7 @@ export class PedidoService {
     this.memoria.set(llave, listaNuevoPedidos);
   }
 
-  updatePedido(index: number, pedido : Pedido){
+  updatePedido_m(index: number, pedido : Pedido){
     let llave =  'listapedidos';
     let listaPedidos = this.memoria.get(llave);
     listaPedidos[index] = pedido;
