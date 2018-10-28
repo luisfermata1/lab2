@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { observable, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Pedido } from './lista-compras/pedido';
 import { SESSION_STORAGE, StorageService, StorageServiceModule } from 'angular-webstorage-service';
 import { ListaComprasComponent } from './lista-compras/lista-compras.component';
@@ -9,6 +9,35 @@ import { ListaComprasComponent } from './lista-compras/lista-compras.component';
 })
 
 export class PedidoService {
+
+  //Obtener todos los pedidos
+  getPedidos(): Observable<Pedido[]>
+  {
+    
+      var req = new XMLHttpRequest();
+      req.open('GET', 'http://localhost:3000/api/v1/pedido/', false);
+      
+      req.send(null);
+      
+      if (req.status == 200)
+      {
+        alert("entro");
+        var jsonArray = JSON.parse(req.responseText);
+        return of(jsonArray);
+      }
+      else
+      {
+        
+        return of([]);
+      }
+
+  }
+
+
+
+
+
+  //manejo de local storage
   agregarPedido (pedido: Pedido)
   {
     let llave =  'listapedidos';

@@ -15,7 +15,17 @@ import { Location } from '@angular/common';
 
 export class ListaComprasComponent implements OnInit {
   
-  pedidos : Pedido[] = this.memoria.get('listapedidos');
+  pedidos : Pedido[]; //= this.memoria.get('listapedidos');
+  //pedidos2 : Pedido[];
+
+  getPedidos(): void
+  {
+    
+      this.servicio.getPedidos().subscribe(pedidos => this.pedidos = pedidos);
+      
+      console.log(this.pedidos);
+      
+  }
 
   eliminarPedido(i: number){
     this.servicio.eliminarIndex(i);
@@ -26,8 +36,9 @@ export class ListaComprasComponent implements OnInit {
     
   }
 
-  ngOnInit() {
-    
+  ngOnInit(): void {
+    this.getPedidos();
+
   }
   load() {
     location.reload()

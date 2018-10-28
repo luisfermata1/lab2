@@ -10,6 +10,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 })
 export class FormularioComponent implements OnInit {
   pedido: Pedido; 
+    _id: string;
     name: string;
     cantidad: number;
     color: string;
@@ -19,6 +20,7 @@ export class FormularioComponent implements OnInit {
   agregarPedido()
   {
     this.pedido = {
+      _id: this._id,
       name: this.name,
       cant: this.cantidad,
       color: this.color,
