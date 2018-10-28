@@ -21,16 +21,32 @@ export class PedidoService {
       
       if (req.status == 200)
       {
-        alert("entro");
         var jsonArray = JSON.parse(req.responseText);
         return of(jsonArray);
       }
       else
       {
-        
         return of([]);
       }
 
+  }
+
+  //obtener solo un elemento por su id para poder modificar su info
+  getPedido(id: string): Observable<Pedido> {
+    var req = new XMLHttpRequest();
+    req.open('GET', 'http://localhost:3000/api/v1/pedido/'+id, false);
+    req.send(null);
+    if (req.status == 200)
+    {
+      
+      var json = JSON.parse(req.responseText);
+      //console.log(json);
+      return of(json);
+    }
+    else
+    {
+      return of();
+    }
   }
 
 

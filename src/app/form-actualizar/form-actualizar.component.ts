@@ -49,8 +49,10 @@ export class FormActualizarComponent implements OnInit {
 
   getPedido() : void {
     const id = this.route.snapshot.paramMap.get('id');
-    
-    this.pedido= this.memoria.get('listapedidos')[id];
+    this.servicio.getPedido(id).subscribe(pedido => this.pedido = pedido[0]);
+    console.log(this.pedido);
+    console.log(this.pedido.name);
+    //this.pedido= this.memoria.get('listapedidos')[id];
   }
 
   actualizarPedido() : void {
