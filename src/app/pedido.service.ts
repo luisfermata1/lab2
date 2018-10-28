@@ -69,6 +69,19 @@ export class PedidoService {
  
    }
 
+   deletePedido(id:string): Observable<Pedido[]> {
+    var req = new XMLHttpRequest();
+    req.open('DELETE', 'http://localhost:3000/api/v1/pedido/'+id, false);
+    req.send(null);
+    if (req.status == 200)
+    {
+      return of();
+    }
+    else
+    {
+      return of();
+    }
+  }
 
 
 

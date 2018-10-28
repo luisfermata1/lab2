@@ -28,7 +28,9 @@ export class ListaComprasComponent implements OnInit {
   }
 
   eliminarPedido(i: number){
-    this.servicio.eliminarIndex(i);
+    const id = this.pedidos[i]._id;
+    this.servicio.deletePedido(id);
+    //this.servicio.eliminarIndex(i);
     this.load();
   }
 
