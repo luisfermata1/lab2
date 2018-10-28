@@ -49,6 +49,15 @@ export class PedidoService {
     }
   }
 
+  //Crear un pedido desde la api
+  createPedido(pedido:Pedido): Observable<Pedido[]> {
+    var req = new XMLHttpRequest();
+    req.open('POST', 'http://localhost:3000/api/v1/pedido', true);
+    req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    req.send(JSON.stringify(pedido));
+    return of([]);
+   }
+
 
 
 

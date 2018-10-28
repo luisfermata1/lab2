@@ -27,8 +27,9 @@ export class FormularioComponent implements OnInit {
       capac: this.capacidad,
       descr: this.descripcion
     };
-
-    this.servicio.agregarPedido(this.pedido);
+    let salida = this.servicio.createPedido(this.pedido);
+    console.log(salida);
+    //this.servicio.agregarPedido(this.pedido);
     document.getElementById("openM").click();
   }
   constructor(
