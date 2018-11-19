@@ -15,7 +15,7 @@ export class PedidoService {
   {
     
       var req = new XMLHttpRequest();
-      req.open('GET', 'http://localhost:3000/api/v1/pedido/', false);
+      req.open('GET', 'http://appidns.westus.azurecontainer.io:3000/api/v1/pedido/', false);
       
       req.send(null);
       
@@ -34,7 +34,7 @@ export class PedidoService {
   //obtener solo un elemento por su id para poder modificar su info
   getPedido(id: string): Observable<Pedido> {
     var req = new XMLHttpRequest();
-    req.open('GET', 'http://localhost:3000/api/v1/pedido/'+id, false);
+    req.open('GET', 'http://appidns.westus.azurecontainer.io:3000/api/v1/pedido/'+id, false);
     req.send(null);
     if (req.status == 200)
     {
@@ -52,7 +52,7 @@ export class PedidoService {
   //Crear un pedido desde la api
   createPedido(pedido:Pedido): Observable<Pedido[]> {
     var req = new XMLHttpRequest();
-    req.open('POST', 'http://localhost:3000/api/v1/pedido', true);
+    req.open('POST', 'http://appidns.westus.azurecontainer.io:3000/api/v1/pedido', true);
     req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     req.send(JSON.stringify(pedido));
     return of([]);
@@ -62,7 +62,7 @@ export class PedidoService {
    updatePedido(pedido:Pedido): Observable<Pedido[]> {
     var _id = pedido._id;
     var req = new XMLHttpRequest();
-    req.open('PUT', 'http://localhost:3000/api/v1/pedido/'+_id, true);
+    req.open('PUT', 'http://appidns.westus.azurecontainer.io:3000/api/v1/pedido/'+_id, true);
     req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     req.send(JSON.stringify(pedido));
     return of([]);
@@ -71,7 +71,7 @@ export class PedidoService {
 
    deletePedido(id:string): Observable<Pedido[]> {
     var req = new XMLHttpRequest();
-    req.open('DELETE', 'http://localhost:3000/api/v1/pedido/'+id, false);
+    req.open('DELETE', 'http://appidns.westus.azurecontainer.io:3000/api/v1/pedido/'+id, false);
     req.send(null);
     if (req.status == 200)
     {

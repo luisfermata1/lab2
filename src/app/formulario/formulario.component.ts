@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { PedidoService } from '../pedido.service';
 import { Pedido } from '../lista-compras/pedido';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulario',
@@ -34,7 +35,8 @@ export class FormularioComponent implements OnInit {
   }
   constructor(
     private servicio: PedidoService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private router: Router
     ) { }
 
     open(content) {
@@ -47,7 +49,12 @@ export class FormularioComponent implements OnInit {
 
     openSm(content) {
       this.modalService.open(content, { size: 'sm' });
+      setTimeout(() => {
+        this.modalService.dismissAll();
+        this.router.navigate(['/listapedidos']);
+     }, 2000);
     }
+
 
     private getDismissReason(reason: any): string {
       if (reason === ModalDismissReasons.ESC) {

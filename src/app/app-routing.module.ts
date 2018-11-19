@@ -6,9 +6,9 @@ import { FormularioComponent } from './formulario/formulario.component';
 import { FormActualizarComponent } from './form-actualizar/form-actualizar.component';
 
 const routes: Routes = [
-  { path: 'lista', component: ListaComprasComponent },
-  { path: 'formu', component: FormularioComponent },
-  { path: 'refresh/:id', component: FormActualizarComponent }
+  { path: 'listapedidos', component: ListaComprasComponent },
+  { path: 'agregar', component: FormularioComponent },
+  { path: 'modificar/:id', component: FormActualizarComponent }
 ];
 
 @NgModule({
